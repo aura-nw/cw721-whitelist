@@ -91,12 +91,9 @@ fn _mint(
         .unwrap();
 
     // if whitelist_remained is less than or equal 0, it means that sender cannot mint anymore
-    if whitelist_remained <= 0 {
+    if whitelist_remained == 0 {
         return Err(ContractError::Unauthorized {});
     }
-
-    // create new token_id by concat the token_id and whitelist remained
-    let token_id = format!("{}-{}", msg.token_id, whitelist_remained);
 
     // decrease whitelist remained
     state::WHILELIST.save(deps.storage, info.sender.clone(), &(whitelist_remained - 1))?;
@@ -111,7 +108,7 @@ fn _mint(
 
     Cw721Whitelist::default()
         .tokens
-        .update(deps.storage, &token_id, |old| match old {
+        .update(deps.storage, &msg.token_id, |old| match old {
             Some(_) => Err(ContractError::Claimed {}),
             None => Ok(token),
         })?;
@@ -122,5 +119,5 @@ fn _mint(
         .add_attribute("action", "mint")
         .add_attribute("minter", info.sender)
         .add_attribute("owner", msg.owner)
-        .add_attribute("token_id", token_id))
+        .add_attribute("token_id", msg.token_id))
 }
