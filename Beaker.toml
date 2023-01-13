@@ -1,0 +1,5 @@
+name = "cw-marketplace"
+
+[wasm]
+contract_dir = 'contracts'
+optimizer_version = '0.12.9'
