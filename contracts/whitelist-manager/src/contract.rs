@@ -207,7 +207,7 @@ pub fn query_whitelist_status(deps: Deps, address: String) -> StdResult<Whitelis
             if status.status {
                 Ok(WhitelistStatusResponse::AllowMint)
             } else {
-                Ok(WhitelistStatusResponse::DenyMint)
+                Ok(WhitelistStatusResponse::Minted)
             }
         }
         Err(_) => Ok(WhitelistStatusResponse::DenyMint),
