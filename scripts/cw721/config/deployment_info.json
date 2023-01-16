@@ -1,10 +1,11 @@
 {
 	"nft": {
-		"code_id": 437,
-		"address": "aura1kv9fgur005wh0cvf9a3zfawz8pw0srf776hry8wp4uxe683agrwsfawszh"
+		"code_id": 957,
+		"address": "aura1m3vgu85tgj628w8z07xz6myhe75chjddr3mn8gwny63sy8ypj5kqf6mrcx"
 	},
 	"manager": {
-		"code_id": 438,
-		"address": "aura1kh2zwl2ww08qx0n4jrattxqmvywwlnqg9tmdqrzme4nwumdhrhlqa7txyh"
+		"code_id": 956,
+		"address": "aura1ettzku430qwrlp99x7hds5lwv0nn37dycvnh2ffetqqy4sllkl8qf4a4vj"
+		
 	}
 }

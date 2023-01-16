@@ -28,7 +28,7 @@ async function swap(_contract) {
     // define the set manager send for cw20
     const executeSetAddressMsg = {
         "set_token_contract": {
-            "token_contract": "",
+            "token_contract": "aura1m3vgu85tgj628w8z07xz6myhe75chjddr3mn8gwny63sy8ypj5kqf6mrcx",
         }
     }
 

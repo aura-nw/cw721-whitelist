@@ -24,7 +24,7 @@ async function instantiate(_codeID) {
     // the minter should be the address of the manager contract
     const instantiateMsg = {"name": "Rikko NFT",
                             "symbol": "VAURA",
-                            "minter": "",
+                            "minter": "aura1ettzku430qwrlp99x7hds5lwv0nn37dycvnh2ffetqqy4sllkl8qf4a4vj",
                         };
 
     //Instantiate the contract
