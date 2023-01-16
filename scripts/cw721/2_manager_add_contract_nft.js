@@ -8,7 +8,7 @@ const { GasPrice } = require('@cosmjs/stargate');
 
 async function swap(_contract) {
     const testerWallet = await DirectSecp256k1HdWallet.fromMnemonic(
-        chainConfig.tester_mnemonic,
+        chainConfig.deployer_mnemonic,
         {
             prefix: chainConfig.prefix
         }
@@ -26,21 +26,20 @@ async function swap(_contract) {
     const memo = "convert from native to vaura";
 
     // define the set manager send for cw20
-    const executeMintMsg = {
-        "mint": {
-            "recipient": testerAccount.address,
-            "amount": "10000000",
+    const executeSetAddressMsg = {
+        "set_token_contract": {
+            "token_contract": "",
         }
     }
 
-    console.log("executeMintMsg: ", executeMintMsg);
+    console.log("executeSetAddressMsg: ", executeSetAddressMsg);
 
     console.log("testerAccount.address: ", testerAccount.address);
     // send the cw20 token to contract
     const takeResponse = await testerClient.execute(
         testerAccount.address, 
         _contract, 
-        executeMintMsg, 
+        executeSetAddressMsg, 
         "auto", 
         memo, 
         [coin(10000000, chainConfig.denom)]
